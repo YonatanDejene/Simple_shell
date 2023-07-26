@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * path2ls – Breaks and excute strings.
+ * path2ls - Breaks and excute strings.
  * @cmd: User command.
  * @ac: Arg count.
  * @av: Arg vector.
