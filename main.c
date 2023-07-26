@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - Simple shell.
+ * main - Calls different funcs that make up a simple shell
  * @av: Arg Vector.
  * @ac: Arg Count.
  *
@@ -20,7 +20,11 @@ int main(int ac, char *av[])
 			prompt();
 		if (getline(&command, &n, stdin) == -1)
 		{
-			free(command), exit(st);
+			if (command)
+				free(command);
+			if (isatty(STDIN_FILENO))
+				_putchar('\n');
+			exit(EXIT_SUCCESS);
 		}
 		rm_space(command);
 		if (_strlen(command) == 0)
@@ -30,22 +34,18 @@ int main(int ac, char *av[])
 			continue;
 
 		else if (bltin(command) == 0)
-			free(command), exit(st);
+			free(command), exit(EXIT_SUCCESS);
 		if (ac > 0 && _strncmp(command, "/bin/", 5) == 0)
 		{
 			st = path_ls2bin(command, av);
-			if (st > 0)
-			{
-				if (_strncmp(cmd, "/bin/ls", 7) == 0)
-					st = 2;
-				else st = 127;
-			}
+			if (st == 1)
+				continue;
 		}
 		else if (ac > 0 && _strncmp(command, "/bin/", 5) != 0)
 		{
-			st = path2ls(command, av);
-			if (st > 0)
-				st = 127;
+			st = path2ls(command, ac, av);
+			if (st == 1)
+				continue;
 		}
 	}
 	return (0);

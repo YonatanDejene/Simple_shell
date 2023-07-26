@@ -1,15 +1,16 @@
 #include "shell.h"
 
 /**
- * path2ls - Breaks and excute strings.
+ * path2ls – Breaks and excute strings.
  * @cmd: User command.
+ * @ac: Arg count.
  * @av: Arg vector.
  *
  * Return: 0 on success,
  * 1 Otherwise.
  */
 
-int path2ls(char *cmd, char **av)
+int path2ls(char *cmd, int ac __attribute__((unused)), char **av)
 {
 	int st = 0;
 	int argc = 0;
@@ -36,12 +37,16 @@ int path2ls(char *cmd, char **av)
 
 	st = execute(argc, argv2, av);
 	free(cmnd);
-	free(argv2);
-	return (st);
-}
 
+	if (st == 1)
+	{
+		return (1);
+	}
+
+	return (0);
+}
 /**
- * path_ls2bin - Exec str.
+ * path_ls2bin – Execute strings.
  * @cmd: User command.
  * @av: Arg vector.
  *
@@ -53,9 +58,8 @@ int path_ls2bin(char *cmd, char **av)
 {
 	int argc = 0;
 	int st = 0;
-
 	char *tkn = NULL;
-	char **argv = NULL;
+	char **argv = NULL; 
 
 	argv = malloc(sizeof(char *) * SIZE);
 
@@ -69,6 +73,10 @@ int path_ls2bin(char *cmd, char **av)
 	}
 	argv[argc] = NULL;
 	st = execute(argc, argv, av);
+	if (st == 1)
+	{
+		return (1);
+	}
 	free(argv);
-	return (st);
+	return (0);
 }
