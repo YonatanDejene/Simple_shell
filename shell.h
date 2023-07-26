@@ -19,7 +19,7 @@ int _putchar(char c);
 int _strlen(const char *str);
 int _strncmp(char *str1, char *str2, int n);
 void prompt(void);
-int stw(const char *strng, const char *sub, int index);
+int stw(const char *str, const char *sub, int index);
 void error(char *name, char *cmd_name);
 void rm_space(char *str);
 void rmv_string(char *str);

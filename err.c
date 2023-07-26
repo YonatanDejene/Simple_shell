@@ -29,13 +29,13 @@ void error(char *name, char *cmd_name)
 
 /**
  * stw - Checks substring’s index in the string.
- * @strng: String.
+ * @str: String.
  * @sub: String.
  * @index: Index.
  *
  * Return: 0 or 1
  */
-int stw(const char *strng, const char *sub, int index)
+int stw(const char *str, const char *sub, int index)
 {
 	int length = _strlen(sub);
 	int k;
