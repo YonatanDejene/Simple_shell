@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * rm_space – Removes space from a command.
+ * rm_space - Removes space from a command.
  * @str: User input string.
  *
  * Return: Void.
@@ -32,7 +32,7 @@ int k, l;
 
 
 /**
- * _strlen – Counts characters in a string.
+ * _strlen - Counts characters in a string.
  * @str: User input string to be counted.
  *
  * Return: Length of the string.
