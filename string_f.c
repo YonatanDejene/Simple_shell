@@ -1,3 +1,5 @@
+#include "shell.h"
+
 /**
  * _strncmp – Compares Strings.
  * @str1: 1st string to be compared.
@@ -23,8 +25,6 @@ int _strncmp(char *str1, char *str2, int n)
 	}
 	return (0);
 }
-
-#include "shell.h"
 
 /**
  * _putchar - Writes the character C.
