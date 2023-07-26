@@ -20,11 +20,7 @@ int main(int ac, char *av[])
 			prompt();
 		if (getline(&command, &n, stdin) == -1)
 		{
-			if (command)
-				free(command);
-			if (isatty(STDIN_FILENO))
-				_putchar('\n');
-			exit(EXIT_SUCCESS);
+			free(command), exit(st);
 		}
 		rm_space(command);
 		if (_strlen(command) == 0)
@@ -34,18 +30,22 @@ int main(int ac, char *av[])
 			continue;
 
 		else if (bltin(command) == 0)
-			free(command), exit(EXIT_SUCCESS);
+			free(command), exit(st);
 		if (ac > 0 && _strncmp(command, "/bin/", 5) == 0)
 		{
 			st = path_ls2bin(command, av);
-			if (st == 1)
-				continue;
+			if (st > 0)
+			{
+				if (_strncmp(cmd, "/bin/ls", 7) == 0)
+					st = 2;
+				else st = 127;
+			}
 		}
 		else if (ac > 0 && _strncmp(command, "/bin/", 5) != 0)
 		{
-			st = path2ls(command, ac, av);
-			if (st == 1)
-				continue;
+			st = path2ls(command, av);
+			if (st > 0)
+				st = 127;
 		}
 	}
 	return (0);
