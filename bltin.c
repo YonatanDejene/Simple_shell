@@ -35,16 +35,17 @@ void p_env(void)
 {
 	int k = 0;
 	int l = 0;
+	char **env = environ;
 
-	while (environ[k] != NULL)
+	while (env[k] != NULL)
 	{
 		l = 0;
-		while (environ[k][l] != '\0')
+		while (env[k][l] != '\0')
 		{
-			_putchar(environ[k][l]);
+			_putchar(env[k][l]);
 			l++;
 		}
 		_putchar('\n');
-		l++;
+		k++;
 	}
 }
