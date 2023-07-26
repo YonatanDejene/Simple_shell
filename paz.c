@@ -46,7 +46,7 @@ int path2ls(char *cmd, int ac __attribute__((unused)), char **av)
 	return (0);
 }
 /**
- * path_ls2bin – Execute strings.
+ * path_ls2bin - Exec str.
  * @cmd: User command.
  * @av: Arg vector.
  *

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * error – Shows error text.
+ * error - Display error massage.
  * @name: File name.
  * @cmd_name: Command.
  *
@@ -35,7 +35,7 @@ void error(char *name, char *cmd_name)
  *
  * Return: 0 or 1
  */
-int stw(const char *str, const char *sub, int index)
+int stw(const char *strng, const char *sub, int index)
 {
 	int length = _strlen(sub);
 	int k;
@@ -51,7 +51,7 @@ int stw(const char *str, const char *sub, int index)
 }
 
 /**
- * rmv_string – Removes bin.
+ * rmv_string - Rmv bin.
  * @str: String to be edited.
  *
  * Return: Void

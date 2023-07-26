@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * execute – Execute func.
+ * execute – Exc func.
  * @argc: Input int.
  * @argument: Command.
  * @av: Arg Vector.

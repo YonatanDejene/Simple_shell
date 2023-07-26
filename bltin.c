@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * bltin – Distinguish bn exit and env commands.
+ * bltin - Distinguish bn exit and env commands.
  * @command: User command.
  *
  * Return: Error number if exit,
